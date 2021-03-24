@@ -11,6 +11,7 @@ nela é onde fica a função para fazer o loop do jogo funcionar(m_pRunning);
 
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <vector>
 #include "TextureManager.h"
 #include "Player.h"
 #include "GameObject.h"
@@ -23,8 +24,10 @@ private:
 
     bool m_pRunning;
 
-    GameObject m_go;
-    Player m_player;
+    GameObject* m_go;
+    GameObject* m_player;
+
+    std::vector<GameObject*> m_gameObjects;
 public:
     Game(/* args */);
     ~Game();

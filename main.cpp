@@ -1,3 +1,9 @@
+// Criado por mim (Marco Antonio) seguindo tutorial de um livro;
+/*
+                                    BREVE DESCRIÇÃO:
+    A main do jogo inteiro. Ela não tem nenhuma responsabilidade além do loop principal
+e chamar a classe Game que da vida ao jogo inteiro;
+*/
 #include <iostream>
 #include "Game.h"
 

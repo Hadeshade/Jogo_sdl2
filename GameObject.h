@@ -16,10 +16,10 @@ ser usado no jogo;
 class GameObject
 {
 public:
-    void load(int x, int y, int width, int height, std::string textureid);
-    void draw(SDL_Renderer* pRenderer);
-    void update();
-    void clear();
+    virtual void load(int x, int y, int width, int height, std::string textureid);
+    virtual void draw(SDL_Renderer* pRenderer);
+    virtual void update();
+    virtual void clear();
 protected:
     std::string m_textureID;
 
