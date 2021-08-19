@@ -6,6 +6,7 @@ classes do jogo e construir o nosso jogo em si (seria tipo o responsável pelo f
 Nessa classe construimos o renderizador, e a janela que vai ser mostrada ao usuário, e 
 nela é onde fica a função para fazer o loop do jogo funcionar(m_pRunning);
 */
+#pragma once
 #ifndef GAME_H
 #define GAME_H
 
@@ -28,9 +29,13 @@ private:
     GameObject* m_player;
 
     std::vector<GameObject*> m_gameObjects;
+
+    Game(){}
+    static Game* s_pInstance;
+
+    
 public:
-    Game(/* args */);
-    ~Game();
+    SDL_Renderer* getRenderer() const { return m_pRenderer;}
 
     bool init(const char*,int,int,int,int,int);
     void render();
@@ -39,8 +44,19 @@ public:
     void clear();
 
     bool running() {return m_pRunning;}
+
+    static Game* Instance()
+    {
+        if (s_pInstance == 0)
+        {
+            s_pInstance = new Game();
+            return s_pInstance;
+        }
+        return s_pInstance;
+    }
 };
 
+typedef Game TheGame;
 
 
 #endif

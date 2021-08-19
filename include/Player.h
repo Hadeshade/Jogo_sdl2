@@ -5,13 +5,21 @@
 Essa Classe a principio é igual a GameObject só que com leves diferenças; Essa classe herda tudo
 da classe mãe (GameObject), e sobrescreve as funções para fazer coisas diferentes;
 */
-#include "GameObject.h"
+#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 
-class Player : public GameObject 
-{
+class SDLGameObject;
+
+#include "SDLGameObject.h"
+
+class Player : public SDLGameObject {
 public:
-    void load(int x, int y, int width, int height, std::string textureid);
-    void draw(SDL_Renderer* pRenderer);
+    Player(const LoaderParams* pParams);
+
+    void draw();
     void update();
     void clear();
 };
+
+#endif

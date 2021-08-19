@@ -11,16 +11,19 @@ ser usado no jogo;
 
 #include <string>
 #include <SDL2/SDL.h>
-#include "TextureManager.h"
+#include "LoaderParams.h"
 
 class GameObject
 {
 public:
-    virtual void load(int x, int y, int width, int height, std::string textureid);
-    virtual void draw(SDL_Renderer* pRenderer);
-    virtual void update();
-    virtual void clear();
+    virtual void draw() = 0;
+    virtual void update() = 0;
+    virtual void clear() = 0;
 protected:
+    
+    GameObject(const LoaderParams* pParams){}
+    virtual ~GameObject() {}
+    /*
     std::string m_textureID;
 
     int m_currentFrame;
@@ -31,6 +34,7 @@ protected:
 
     int m_width;
     int m_height;
+    */
 };
 
 
