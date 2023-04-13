@@ -10,8 +10,10 @@ da forma correta (de acordo com as boas práticas de programação);
 */
 
 #include "Game.h"
+#include "InputHandler.h"
 
 Game* Game::s_pInstance = 0;
+//InputHandler* InputHandler::s_pInstance = 0;
 
 bool Game::init(const char* title,int xpos, int ypos, int width, int height, int flags) 
 {
@@ -106,24 +108,12 @@ void Game::update()
 
 void Game::handleEvents() 
 {
-    SDL_Event event;
-    if (SDL_PollEvent(&event))
-    {
-        switch (event.type)
-        {
-        case SDL_QUIT:
-            m_pRunning = false;
-        break;
-        
-        default:
-        break;
-        }
-    }
-    
+    TheInputHandler::Instance()->update();
 }
 
 void Game::clear() 
 {
+    TheInputHandler::Instance()->clean();
     std::cout << "cleaning game\n";
     SDL_DestroyWindow(m_pWindow);
     SDL_DestroyRenderer(m_pRenderer);

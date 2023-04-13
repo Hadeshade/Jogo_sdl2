@@ -17,6 +17,7 @@ nela é onde fica a função para fazer o loop do jogo funcionar(m_pRunning);
 #include "Player.h"
 #include "GameObject.h"
 
+
 class Game
 {
 private:
@@ -42,6 +43,7 @@ public:
     void update();
     void handleEvents();
     void clear();
+    void quit() {m_pRunning=false;}
 
     bool running() {return m_pRunning;}
 
