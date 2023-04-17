@@ -1,3 +1,6 @@
+#ifndef __PlayState__
+#define __PlayState__
+
 #include "GameState.h"
 
 class PlayState : public GameState
@@ -16,3 +19,4 @@ public:
 };
 
 
+#endif

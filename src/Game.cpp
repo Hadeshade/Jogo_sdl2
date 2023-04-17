@@ -11,6 +11,7 @@ da forma correta (de acordo com as boas práticas de programação);
 
 #include "Game.h"
 #include "InputHandler.h"
+#include "GameStateMachine.h"
 
 Game* Game::s_pInstance = 0;
 //InputHandler* InputHandler::s_pInstance = 0;
@@ -34,6 +35,7 @@ bool Game::init(const char* title,int xpos, int ypos, int width, int height, int
                 SDL_SetRenderDrawColor(m_pRenderer, 0,0, 0, 255);
                 TheTextureManager::Instance()->load("img/animate.png","animate",m_pRenderer);
 
+                
                 //m_go = new GameObject();
                 //m_player = new Player();
 
@@ -67,6 +69,8 @@ bool Game::init(const char* title,int xpos, int ypos, int width, int height, int
     
     std::cout << "init success\n";
 
+    m_pGameStateMachine = new GameStateMachine();
+    m_pGameStateMachine->changeState(new MenuState());
     
     m_pRunning = true;
     
@@ -111,6 +115,10 @@ void Game::update()
 void Game::handleEvents() 
 {
     TheInputHandler::Instance()->update();
+
+    if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN)){
+        m_pGameStateMachine->changeState(new PlayState());
+    }
 }
 
 void Game::clear() 

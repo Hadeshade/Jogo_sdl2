@@ -1,3 +1,6 @@
+#ifndef __GameState__
+#define __GameState__
+
 #include <string>
 
 class GameState
@@ -12,10 +15,5 @@ public:
     virtual std::string getStateID() const = 0;
 };
 
-// GameState::GameState(/* args */)
-// {
-// }
 
-// GameState::~GameState()
-// {
-// }
+#endif

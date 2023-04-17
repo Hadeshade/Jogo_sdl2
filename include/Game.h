@@ -16,6 +16,9 @@ nela é onde fica a função para fazer o loop do jogo funcionar(m_pRunning);
 #include "TextureManager.h"
 #include "Player.h"
 #include "GameObject.h"
+#include "GameStateMachine.h"
+#include "PlayState.h"
+#include "MenuState.h"
 
 
 class Game
@@ -30,6 +33,8 @@ private:
     GameObject* m_player;
 
     std::vector<GameObject*> m_gameObjects;
+
+    GameStateMachine* m_pGameStateMachine;
 
     Game(){}
     static Game* s_pInstance;
