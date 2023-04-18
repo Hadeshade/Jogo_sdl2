@@ -95,6 +95,8 @@ void Game::render()
     //TheTextureManager::Instance()->drawFrame("animate",100,100,128,82,1,m_currentFrame,m_pRenderer);
     // TheTextureManager::Instance()->drawFrame("teste",200,200,71,88,1,m_currentFrame2,m_pRenderer);
 
+    m_pGameStateMachine->render();
+
     SDL_RenderPresent(m_pRenderer);      // draw to the screen 
 }
 
@@ -105,6 +107,7 @@ void Game::update()
         m_gameObjects[i]->update();
     }
     
+    m_pGameStateMachine->update();
     // m_go.update();
     // m_player.update();
     
