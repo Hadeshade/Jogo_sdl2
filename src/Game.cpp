@@ -82,10 +82,10 @@ void Game::render()
 {
     SDL_RenderClear(m_pRenderer);        // clear the renderer to the draw color
     
-    for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++)
-    {
-        m_gameObjects[i]->draw();
-    }
+    // for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++)
+    // {
+    //     m_gameObjects[i]->draw();
+    // }
     
     // As proximas linhas de codigo foram substituidas pelas linhas anteriores:
     // m_go.draw(m_pRenderer);
@@ -102,10 +102,10 @@ void Game::render()
 
 void Game::update() 
 {
-    for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++)
-    {
-        m_gameObjects[i]->update();
-    }
+    // for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++)
+    // {
+    //     m_gameObjects[i]->update();
+    // }
     
     m_pGameStateMachine->update();
     // m_go.update();
