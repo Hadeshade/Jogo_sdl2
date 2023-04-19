@@ -24,48 +24,29 @@ void Player::draw()
 void Player::update() 
 {
     //Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
+    m_currentFrame = int(((SDL_GetTicks()/100)%6));
 
+    if (TheInputHandler::Instance()->getMouseButtonState(LEFT))
+	{
+		Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
+		m_velocity = (*vec - m_position) / 100;
+	}
     if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)){
         m_velocity.setX(2);
-        m_velocity.setY(2);
     }
     if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT)){
         m_velocity.setX(-2);
-        m_velocity.setY(0);
     }
     if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP)){
         m_velocity.setY(-2);
-        m_velocity.setX(0);
     }
     if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN)){
         m_velocity.setY(2);
-        m_velocity.setX(0);
     }
     if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE)){
         m_velocity.setY(0);
         m_velocity.setX(0);
-    }
-    // if(m_position.getX() > 640 || m_position.getY() > 480)
-    // {
-    //     if (m_position.getX() > 640)
-    //     {
-    //         m_position.setX(-128);
-    //     }
-    //     if (m_position.getY() > 480)
-    //     {
-    //         m_position.setY(-82);
-    //     }        
-    // }
-
-    // Velocidade alterada para os botoes do mouse
-    // if(TheInputHandler::Instance()->getMouseButtonState(LEFT)){
-    //     m_velocity.setX(1);
-    // }
-    // if(TheInputHandler::Instance()->getMouseButtonState(RIGHT)){
-    //     m_velocity.setX(-1);
-    // }
-    
-    
+    }    
     
     m_position.setX(m_position.getX());
     m_position.setY(m_position.getY());
@@ -74,11 +55,19 @@ void Player::update()
 
     //m_velocity = (*vec - m_position) / 100;
     SDLGameObject::update();
-    m_currentFrame = int(((SDL_GetTicks()/100)%6));
+    
 }
 
 void Player::clear() 
 {
     
+}
+
+void Player::handleInput(){
+    Vector2D* target = TheInputHandler::Instance()->getMousePosition();
+
+    m_velocity = *target - m_position;
+
+    m_velocity /= 50;
 }
 

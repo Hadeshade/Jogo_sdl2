@@ -43,6 +43,8 @@ private:
 public:
     SDL_Renderer* getRenderer() const { return m_pRenderer;}
 
+    GameStateMachine* getStateMachine(){return m_pGameStateMachine;}
+
     bool init(const char*,int,int,int,int,int);
     void render();
     void update();

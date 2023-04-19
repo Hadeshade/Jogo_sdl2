@@ -20,6 +20,7 @@ public:
     void draw();
     void update();
     void clear();
+    void handleInput();
 };
 
 #endif

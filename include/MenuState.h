@@ -21,6 +21,10 @@ private:
 
     std::vector<GameObject*> m_gameObjects;
 
+    //callback functions para o Menu:
+    static void s_menuToPlay();
+    static void s_exitFromMenu();
+
 };
 
 #endif

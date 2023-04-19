@@ -32,18 +32,17 @@ bool Game::init(const char* title,int xpos, int ypos, int width, int height, int
             if (m_pRenderer != 0)
             {
                 std::cout << "renderer creation success\n";
-                SDL_SetRenderDrawColor(m_pRenderer, 0,0, 0, 255);
-                TheTextureManager::Instance()->load("img/animate.png","animate",m_pRenderer);
+                SDL_SetRenderDrawColor(m_pRenderer, 255,0, 0, 255);
+                //TheTextureManager::Instance()->load("img/animate.png","animate",m_pRenderer);
 
-                
                 //m_go = new GameObject();
                 //m_player = new Player();
 
                 //m_go->load(100,100,128,82, "animate");
                 //m_player->load(300,300,128,82,"animate");
 
-                m_gameObjects.push_back(new Player(new LoaderParams(300,300,128,82,"animate")));
-                m_gameObjects.push_back(new Player(new LoaderParams(100,100,128,82, "animate")));
+                //m_gameObjects.push_back(new Player(new LoaderParams(300,300,128,82,"animate")));
+                //m_gameObjects.push_back(new Player(new LoaderParams(100,100,128,82, "animate")));
                 
 
                 // A proxima linha foi apenas um teste com outro sprite-sheet;
@@ -81,11 +80,6 @@ bool Game::init(const char* title,int xpos, int ypos, int width, int height, int
 void Game::render() 
 {
     SDL_RenderClear(m_pRenderer);        // clear the renderer to the draw color
-    
-    // for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++)
-    // {
-    //     m_gameObjects[i]->draw();
-    // }
     
     // As proximas linhas de codigo foram substituidas pelas linhas anteriores:
     // m_go.draw(m_pRenderer);
